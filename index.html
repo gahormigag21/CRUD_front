@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Viviendas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>CRUD de viviendas</h1>
+
+    <h2>Agregar Persona</h2>
+    <form id="personaForm">
+        <input type="text" id="nombre" placeholder="Nombre" required><br>
+        <input type="tel" id="telefono" placeholder="Teléfono (10 dígitos)" pattern="[0-9]{10}" required><br>
+        <input type="number" id="edad" placeholder="Edad" min="0" required><br>
+        <select id="sexo" required>
+            <option value="" disabled selected>Sexo</option>
+            <option value="Hombre">Hombre</option>
+            <option value="Mujer">Mujer</option>
+            <option value="Otro">Otro</option>
+        </select><br>
+        <select id="VIVIENDA_id_viv" required>
+            <option value="" disabled selected>Selecciona Vivienda</option>
+        </select><br>
+        <select id="dependiente_de">
+            <option value="">Ninguno</option>
+        </select><br>
+        <button type="submit">Agregar Persona</button>
+    </form>    
+    
+    <div id="editFormContainer" style="display: none;">
+        <h2>Editar Persona</h2>
+        <form id="editPersonaForm">
+            <input type="hidden" id="editId" />
+            <input type="text" id="editNombre" placeholder="Nombre" required><br>
+            <input type="tel" id="editTelefono" placeholder="Teléfono" pattern="[0-9]{10}" required><br>
+            <input type="number" id="editEdad" placeholder="Edad" min="0" required><br>
+            <select id="editSexo" required>
+                <option value="Hombre">Hombre</option>
+                <option value="Mujer">Mujer</option>
+                <option value="Otro">Otro</option>
+            </select><br>
+            <select id="editVIVIENDA_id_viv" required></select><br>
+            <select id="editDependiente_de"></select><br>
+            <button type="submit">Guardar cambios</button>
+            <button type="button" onclick="cancelEdit()">Cancelar</button>
+        </form>
+    </div>
+    
+    <h2>Lista de Personas</h2>
+    <table id="personasTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>Edad</th>
+                <th>Sexo</th>   
+                <th>Vivienda</th>
+                <th>Dependiente de</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    
+    <h2>Agregar Vivienda</h2>
+    <form id="addViviendaForm">
+        <label for="direccion">Dirección</label>
+        <input type="text" id="direccion" name="direccion" required>
+    
+        <label for="capacidad">Capacidad</label>
+        <input type="number" id="capacidad" name="capacidad" required>
+    
+        <label for="niveles">Niveles</label>
+        <input type="number" id="niveles" name="niveles" required>
+    
+        <label for="municipio">Municipio</label>
+        <select id="municipio" name="municipio" required>
+            <option value="" disabled selected>Selecciona Municipio</option>
+            <!-- Los municipios serán cargados aquí dinámicamente -->
+        </select>
+    
+        <button type="submit">Agregar Vivienda</button>
+    </form>
+    
+    <h2>Lista de Viviendas</h2>
+    <table id="viviendasTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Dirección</th>
+                <th>Capacidad</th>
+                <th>Niveles</th>
+                <th>Municipio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Las viviendas serán agregadas dinámicamente aquí -->
+        </tbody>
+    </table>
+
+    <form id="editViviendaForm" style="display: none;">
+        <input type="hidden" id="editViviendaId">
+        
+        <label for="editDireccion">Dirección:</label>
+        <input type="text" id="editDireccion" required>
+        
+        <label for="editCapacidad">Capacidad:</label>
+        <input type="number" id="editCapacidad" required>
+        
+        <label for="editNiveles">Niveles:</label>
+        <input type="number" id="editNiveles" required>
+        
+        <label for="editMunicipio">Municipio ID:</label>
+        <input type="number" id="editMunicipio" required>
+        
+        <button type="submit">Modificar Vivienda</button>
+    </form>
+    
+    <div id="municipios">
+        <h2>Lista de Municipios</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Área</th>
+                    <th>Presupuesto</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="municipios-list"></tbody>
+        </table>
+    
+        <!-- Formulario oculto para agregar/modificar municipio -->
+        <form id="municipio-form" style="display: none;">
+            <input type="hidden" id="municipio-id">
+            <label>Nombre:</label>
+            <input type="text" id="municipio-nombre" required>
+            <label>Área:</label>
+            <input type="number" step="1" id="municipio-area" required>
+            <label>Presupuesto:</label>
+            <input type="number" step="1" id="municipio-presupuesto" required>
+            <button type="submit">Guardar</button>
+        </form>
+        <button onclick="mostrarFormularioMunicipio()">Agregar Municipio</button>
+    </div>
+        
+    
+
+    <script src="app.js"></script>
+</body>
+</html>
