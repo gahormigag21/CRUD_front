@@ -1,6 +1,13 @@
-const API_URL = 'http://localhost:3000/personas';
-const API_VIVIENDAS_URL = 'http://localhost:3000/viviendas';
-const API_MUNICIPIOS_URL = 'http://localhost:3000/municipios';
+//Conexion local
+
+// const API_URL = 'http://localhost:3000/personas';
+// const API_VIVIENDAS_URL = 'http://localhost:3000/viviendas';
+// const API_MUNICIPIOS_URL = 'http://localhost:3000/municipios';
+
+//Conexion en despliegue
+const API_URL = 'https://crud-back-b7xc.onrender.com/personas';
+const API_VIVIENDAS_URL = 'https://crud-back-b7xc.onrender.com/viviendas';
+const API_MUNICIPIOS_URL = 'https://crud-back-b7xc.onrender.com/municipios';
 
 
 // Llamar a las funciones para obtener viviendas y personas al cargar la página
@@ -38,8 +45,8 @@ async function getPersonas() {
             <td>${vivienda ? vivienda.direccion : 'N/A'}</td>
             <td>${dependiente ? dependiente.nombre : 'N/A'}</td>
             <td>
-                <button onclick="editPersona(${persona.id})">Editar</button>
-                <button onclick="deletePersona(${persona.id})">Eliminar</button>
+                <button class="btn btn-warning" onclick="editPersona(${persona.id})">Editar</button>
+                <button class="btn btn-danger" onclick="deletePersona(${persona.id})">Eliminar</button>
             </td>
         `;
         tbody.appendChild(tr);
@@ -90,8 +97,8 @@ async function getViviendas() {
             <td>${vivienda.niveles}</td>
             <td>${municipioMap[vivienda.MUNICIPIO_id_mun] || 'Desconocido'}</td>
             <td>
-                <button onclick="editVivienda(${vivienda.id_viv})">Editar</button>
-                <button onclick="deleteVivienda(${vivienda.id_viv})">Eliminar</button>
+                <button class="btn btn-warning" onclick="editVivienda(${vivienda.id_viv})">Editar</button>
+                <button class="btn btn-danger" onclick="deleteVivienda(${vivienda.id_viv})">Eliminar</button>
             </td>
         `;
         tbody.appendChild(tr);
@@ -132,8 +139,8 @@ function obtenerMunicipios() {
                     <td>${municipio.area}</td>
                     <td>${municipio.presupuesto}</td>
                     <td>
-                        <button onclick="mostrarFormularioMunicipio(${municipio.id_mun}, '${municipio.nombre}', ${municipio.area}, ${municipio.presupuesto})">Editar</button>
-                        <button onclick="eliminarMunicipio(${municipio.id_mun})">Eliminar</button>
+                        <button class="btn btn-warning" onclick="mostrarFormularioMunicipio(${municipio.id_mun}, '${municipio.nombre}', ${municipio.area}, ${municipio.presupuesto})">Editar</button>
+                        <button class="btn btn-danger" onclick="eliminarMunicipio(${municipio.id_mun})">Eliminar</button>
                     </td>
                 `;
                 tbody.appendChild(row);

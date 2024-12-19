@@ -1,24 +1,10 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
-    padding: 20px;
 }
-
-h1 {
-    text-align: center;
-}
-
-form {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-input {
-    margin: 5px;
-    padding: 8px;
+nav img{
     width: 200px;
 }
-
 table {
     width: 100%;
     margin-top: 20px;
@@ -31,42 +17,12 @@ th, td {
     border: 1px solid #ddd;
 }
 
-button {
-    padding: 8px 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
 #editFormContainer {
     margin-top: 20px;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#editFormContainer input {
-    margin: 5px;
-    padding: 8px;
-    width: 200px;
-}
-
-#editFormContainer button {
-    padding: 8px 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-#editFormContainer button:hover {
-    background-color: #45a049;
 }
 
 #editFormContainer button[type="button"] {
@@ -93,18 +49,6 @@ button:hover {
     background-color: #f2f2f2;
 }
 
-#viviendasTable button {
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-#viviendasTable button:hover {
-    background-color: #45a049;
-}
 
 #viviendasTable button[type="button"] {
     background-color: #f44336;
